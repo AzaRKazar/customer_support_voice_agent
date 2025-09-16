@@ -1,0 +1,53 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Environment
+.env
+*.env
+.venv/
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & temp files
+*.log
+logs/
+*.tmp
+*.swp
+*.swo
+
+# Streamlit
+.streamlit/
+
+# Qdrant or embeddings
+*.qdrant/
+*.npy
+*.npz
+
+# Audio outputs
+*.mp3
+*.wav
+*.ogg
+
+# Firecrawl outputs
+*.html
+*.md
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Sandbox / cache
+.cache/

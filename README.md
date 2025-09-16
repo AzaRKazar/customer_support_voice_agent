@@ -5,6 +5,10 @@ It uses **Firecrawl** to crawl docs, **Qdrant** to store embeddings, **FastEmbed
 
 Upload a documentation URL, ask questions in plain English, and get back **both text and audio responses**.
 
+## Demo Screenshot
+
+![Screenshot](image.png)
+
 ## ✨ Features
 
 ### Knowledge Base Creation
@@ -88,7 +92,7 @@ You'll need:
 
 Save them in a `.env` file at the root:
 
-```bash         
+```bash
 `QDRANT_URL=https://your-qdrant-instance
 QDRANT_API_KEY=your_qdrant_api_key
 FIRECRAWL_API_KEY=your_firecrawl_api_key`
@@ -132,4 +136,4 @@ FIRECRAWL_API_KEY=your_firecrawl_api_key`
 
 - Cache embeddings for faster reloading
 
-- Multi-page doc crawling with deeper Firecrawl integration
+- Multi-page doc crawling with deeper Firecrawl integration.
