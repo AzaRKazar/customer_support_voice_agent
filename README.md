@@ -1,68 +1,135 @@
 # 🎙️ Customer Support Voice Agent
 
-An OpenAI SDK powered customer support agent application that delivers voice-powered responses to questions about your knowledge base using OpenAI's GPT-4o and TTS capabilities. The system crawls through documentation websites with Firecrawl, processes the content into a searchable knowledge base with Qdrant, and provides both text and voice responses to user queries.
+A **Streamlit application** that delivers voice-powered answers to questions about your documentation.\
+It uses **Firecrawl** to crawl docs, **Qdrant** to store embeddings, **FastEmbed** for vectorization, **Ollama** for LLM reasoning, and **gTTS** for speech synthesis.
 
-## Features
+Upload a documentation URL, ask questions in plain English, and get back **both text and audio responses**.
 
-- Knowledge Base Creation
+## ✨ Features
 
-  - Crawls documentation websites using Firecrawl
-  - Stores and indexes content using Qdrant vector database
-  - Generates embeddings for semantic search capabilities using FastEmbed
-- **AI Agent Team**
-  - **Documentation Processor**: Analyzes documentation content and generates clear, concise responses to user queries
-  - **TTS Agent**: Converts text responses into natural-sounding speech with appropriate pacing and emphasis
-  - **Voice Customization**: Supports multiple OpenAI TTS voices:
-    - alloy, ash, ballad, coral, echo, fable, onyx, nova, sage, shimmer, verse
+### Knowledge Base Creation
 
-- **Interactive Interface**
-  - Clean Streamlit UI with sidebar configuration
-  - Real-time documentation search and response generation
-  - Built-in audio player with download capability
-  - Progress indicators for system initialization and query processing
+-Crawl documentation pages with **Firecrawl API**
 
-## How to Run
+-Convert docs into **semantic embeddings** using **FastEmbed**
 
-1. **Setup Environment**
-   ```bash
-   # Clone the repository
-   git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git
-   cd awesome-llm-apps/ai_agent_tutorials/ai_voice_agent_openaisdk
-   
-   # Install dependencies
-   pip install -r requirements.txt
-   ```
+-Store searchable embeddings in **Qdrant vector database**
 
-2. **Configure API Keys**
-   - Get OpenAI API key from [OpenAI Platform](https://platform.openai.com)
-   - Get Qdrant API key and URL from [Qdrant Cloud](https://cloud.qdrant.io)
-   - Get Firecrawl API key for documentation crawling
+### AI-Powered Querying
 
-3. **Run the Application**
-   ```bash
-   streamlit run ai_voice_agent_docs.py
-   ```
+-Uses **Ollama** locally (e.g., `llama3.2:latest`) to answer questions
 
-4. **Use the Interface**
-   - Enter API credentials in the sidebar
-   - Input the documentation URL you want to learn about
-   - Select your preferred voice from the dropdown
-   - Click "Initialize System" to process the documentation
-   - Ask questions and receive both text and voice responses
+-Context-aware responses citing relevant docs
 
-## Features in Detail
+-Clear and concise answers optimized for support
 
-- **Knowledge Base Creation**
-  - Builds a searchable knowledge base from your documentation
-  - Preserves document structure and metadata
-  - Supports multiple page crawling (limited to 5 pages per default configuration)
+### Voice Responses
 
-- **Vector Search**
-  - Uses FastEmbed for generating embeddings
-  - Semantic search capabilities for finding relevant content
-  - Efficient document retrieval using Qdrant
+-Generates **audio output** with **gTTS (Google Text-to-Speech)**
 
-- **Voice Generation**
-  - High-quality text-to-speech using OpenAI's TTS models
-  - Multiple voice options for customization
-  - Natural speech patterns with proper pacing and emphasis
+-Supports multiple selectable voice styles (default, male, female)
+
+-Integrated audio player + download option
+
+### Interactive Streamlit UI
+
+-Sidebar for API key setup and configuration
+
+-Enter a documentation URL → initialize system → ask queries
+
+-Get responses with sources, audio, and text side-by-side
+
+## ⚙️ Setup
+
+### 1\. Clone the repository
+
+```bash
+`git clone https://github.com/your-username/customer-support-voice-agent.git
+cd customer-support-voice-agent`
+```
+
+### 2\. Install dependencies
+
+```bash
+`pip install -r requirements.txt`
+```
+
+**Dependencies include**:
+
+-`streamlit` (UI)
+
+-`firecrawl-py` (documentation crawling)
+
+-`qdrant-client` (vector DB)
+
+-`fastembed` (embeddings)
+
+-`ollama` (local LLM)
+
+-`gtts` (text-to-speech)
+
+### 3\. Install and run Ollama (for local LLM)
+
+-[Download Ollama](https://ollama.com/download)
+
+-Pull a model, e.g.:
+
+```bash
+`ollama pull llama3.2`
+```
+
+### 4\. Set up required API keys
+
+You'll need:
+
+-**Firecrawl API key** → [Get free key](https://firecrawl.dev)
+
+-**Qdrant Cloud API key + URL** → Sign up
+
+Save them in a `.env` file at the root:
+
+```bash         
+`QDRANT_URL=https://your-qdrant-instance
+QDRANT_API_KEY=your_qdrant_api_key
+FIRECRAWL_API_KEY=your_firecrawl_api_key`
+```
+
+### 5\. Run the app
+
+```bash
+`streamlit run app.py`
+```
+
+## 🖥️ How to Use
+
+1.Open the Streamlit app in your browser.
+
+2.Enter **Qdrant URL**, **Qdrant API Key**, **Firecrawl API Key**, and the **documentation URL** in the sidebar.
+
+3.Click **Initialize System** to crawl, embed, and index the docs.
+
+4.Ask a question about the documentation in the text box.
+
+5.Get:
+
+- **📖 Text Response** (AI-generated answer)
+- **🔊 Audio Response** (play or download)
+- **📚 Sources** (links to docs)
+
+## 🛠️ Example Queries
+
+- "How do I authenticate API requests?"
+
+- "Explain how rate limiting works in this API."
+
+- "Summarize the steps for integrating the SDK."
+
+## 🔮 Future Improvements
+
+- Add support for Whisper STT → voice input queries
+
+- Replace gTTS with **Coqui TTS** or other higher-quality offline TTS
+
+- Cache embeddings for faster reloading
+
+- Multi-page doc crawling with deeper Firecrawl integration

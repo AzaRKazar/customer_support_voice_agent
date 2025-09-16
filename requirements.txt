@@ -2,6 +2,10 @@ firecrawl-py
 qdrant-client
 streamlit
 fastembed
-openai>=1.0.0
+firecrawl
+TTS
 python-dotenv 
 openai-agents
+python-dotenv
+gTTS
+sentence_transformers
